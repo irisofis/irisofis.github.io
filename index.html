@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İris Ofis | Mesleğinin İlk Kapısından, Kendi Ofisine Açılan Köprü</title>
+<meta name="description" content="İris Ofis; avukat, psikolog ve diyetisyen gibi ofis ile çalışan meslek gruplarına prestijli ortak ofis, marka kimliği ve büyüme desteği sunar. Kocaeli.">
+<link rel="icon" href="logo.png">
+<style>
+  :root{
+    --bg:#0b1626;
+    --bg2:#0f1e35;
+    --card:rgba(255,255,255,0.045);
+    --border:rgba(255,255,255,0.09);
+    --text:#eef3f8;
+    --muted:#9fb0c6;
+    --accent:#2d9d6f;
+    --accent-light:#63c9a4;
+    --accent2:#e8823a;
+    --gold:#c9a86a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Georgia','Times New Roman',serif;
+    background:linear-gradient(160deg,var(--bg) 0%,var(--bg2) 100%);
+    color:var(--text);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;}
+
+  header{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(11,22,38,0.75);
+    border-bottom:1px solid var(--border);
+  }
+  .navbar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1120px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:sans-serif;font-weight:800;font-size:1.3rem;letter-spacing:.5px;}
+  .brand img{height:34px;width:34px;object-fit:contain;}
+  .brand .iris{color:var(--text);}
+  .brand .ofis{color:var(--accent-light);}
+  nav ul{list-style:none;display:flex;gap:28px;}
+  nav a{font-family:sans-serif;font-size:.92rem;color:var(--muted);transition:color .2s;}
+  nav a:hover{color:var(--text);}
+  .cta-btn{
+    font-family:sans-serif;font-weight:600;font-size:.9rem;
+    background:var(--accent2);color:#1a1206;
+    padding:10px 20px;border-radius:8px;border:none;cursor:pointer;
+    transition:transform .15s, box-shadow .15s;
+  }
+  .cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(232,130,58,.35);}
+  .menu-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.6rem;cursor:pointer;}
+
+  .hero{padding:90px 0 60px;position:relative;}
+  .hero::before{
+    content:"";position:absolute;top:-120px;right:-160px;width:520px;height:520px;
+    background:radial-gradient(circle,rgba(45,157,111,.25),transparent 70%);
+    border-radius:50%;pointer-events:none;
+  }
+  .eyebrow{font-family:sans-serif;font-size:.85rem;letter-spacing:2px;color:var(--accent-light);text-transform:uppercase;margin-bottom:18px;}
+  h1{font-size:3rem;font-weight:700;line-height:1.15;max-width:780px;}
+  h1 span{color:var(--accent2);}
+  .hero p.lead{margin-top:22px;max-width:620px;color:var(--muted);font-size:1.12rem;}
+  .hero-actions{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap;}
+  .btn-outline{
+    font-family:sans-serif;font-weight:600;font-size:.9rem;
+    border:1px solid var(--border);color:var(--text);
+    padding:10px 22px;border-radius:8px;transition:border-color .2s,background .2s;
+  }
+  .btn-outline:hover{border-color:var(--accent-light);background:rgba(255,255,255,.04);}
+
+  .stats{display:flex;align-items:center;gap:28px;margin-top:64px;flex-wrap:wrap;}
+  .stat-num{font-size:2.6rem;font-weight:700;}
+  .stat-label{font-family:sans-serif;font-size:.78rem;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin-top:2px;}
+  .stat-arrow{flex:1;min-width:80px;height:2px;background:linear-gradient(90deg,var(--accent2),transparent);position:relative;}
+  .stat-mid{font-family:sans-serif;font-size:.75rem;color:var(--accent2);font-weight:700;white-space:nowrap;}
+
+  section{padding:70px 0;}
+  .section-title{font-size:2rem;font-weight:700;margin-bottom:12px;}
+  .section-sub{color:var(--muted);max-width:620px;margin-bottom:44px;font-family:sans-serif;font-size:.98rem;}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .step-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;}
+  .step-num{font-family:sans-serif;font-weight:800;font-size:1.6rem;color:var(--accent-light);margin-bottom:14px;}
+  .step-card h3{font-size:1.15rem;margin-bottom:10px;}
+  .step-card p{font-family:sans-serif;font-size:.92rem;color:var(--muted);}
+
+  .quote{
+    margin:20px 0 0;padding:40px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  }
+  .quote p{font-size:1.6rem;font-style:italic;max-width:760px;}
+  .quote .hl{color:var(--gold);}
+
+  .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .benefit{display:flex;gap:16px;align-items:flex-start;}
+  .icon-circle{
+    flex-shrink:0;width:46px;height:46px;border-radius:50%;
+    background:rgba(45,157,111,.16);color:var(--accent-light);
+    display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+  }
+  .benefit h4{font-size:1.05rem;margin-bottom:4px;}
+  .benefit p{font-family:sans-serif;font-size:.9rem;color:var(--muted);}
+
+  .professions{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+  .prof-card{
+    background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px;text-align:center;
+    transition:transform .2s, border-color .2s;
+  }
+  .prof-card:hover{transform:translateY(-4px);border-color:var(--accent-light);}
+  .prof-emoji{font-size:2rem;margin-bottom:10px;}
+  .prof-card h4{font-size:1.05rem;}
+  .prof-card p{font-family:sans-serif;font-size:.85rem;color:var(--muted);margin-top:6px;}
+
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+  .contact-info h3{font-size:1.3rem;margin-bottom:14px;}
+  .contact-info p{font-family:sans-serif;color:var(--muted);margin-bottom:18px;font-size:.95rem;}
+  .contact-line{font-family:sans-serif;font-size:.95rem;margin-bottom:10px;display:flex;gap:10px;}
+  .contact-line b{color:var(--accent-light);}
+  form{display:flex;flex-direction:column;gap:14px;}
+  .field{display:flex;flex-direction:column;gap:6px;}
+  label{font-family:sans-serif;font-size:.82rem;color:var(--muted);}
+  input,select,textarea{
+    font-family:sans-serif;background:rgba(255,255,255,.04);border:1px solid var(--border);
+    border-radius:8px;padding:11px 12px;color:var(--text);font-size:.92rem;outline:none;
+  }
+  input:focus,select:focus,textarea:focus{border-color:var(--accent-light);}
+  textarea{resize:vertical;min-height:90px;}
+  .submit-btn{
+    font-family:sans-serif;font-weight:700;font-size:.95rem;background:var(--accent2);color:#1a1206;
+    border:none;padding:13px;border-radius:8px;cursor:pointer;transition:transform .15s;
+  }
+  .submit-btn:hover{transform:translateY(-2px);}
+  .form-note{font-family:sans-serif;font-size:.78rem;color:var(--muted);margin-top:4px;}
+
+  footer{border-top:1px solid var(--border);padding:36px 0;margin-top:20px;}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-family:sans-serif;font-size:.85rem;color:var(--muted);}
+  .footer-brand{display:flex;align-items:center;gap:10px;}
+  .footer-brand img{height:24px;width:24px;}
+  .social{display:flex;gap:14px;}
+  .social a{border:1px solid var(--border);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;transition:border-color .2s;}
+  .social a:hover{border-color:var(--accent-light);}
+
+  @media (max-width:860px){
+    h1{font-size:2.2rem;}
+    .steps,.benefits{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    nav ul{display:none;}
+    .menu-toggle{display:block;}
+    nav.open ul{
+      display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;
+      background:var(--bg2);padding:20px 24px;gap:16px;border-bottom:1px solid var(--border);
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="brand"><img src="logo.png" alt="İris Ofis logo"><span class="iris">İRİS</span><span class="ofis">OFİS</span></div>
+    <nav id="mainNav">
+      <ul>
+        <li><a href="#nasil-calisir">Nasıl Çalışır</a></li>
+        <li><a href="#avantajlar">Avantajlar</a></li>
+        <li><a href="#meslekler">Meslekler</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <a href="#iletisim" class="cta-btn">Başvur</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menü">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow sans">MESLEĞİNİN İLK KAPISINDAN, KENDİ OFİSİNE AÇILAN KÖPRÜ</div>
+    <h1>Kendi müşteri kitleni <span>oluştur ve geliştir.</span></h1>
+    <p class="lead">Kartvizitin, internet siten ve sosyal medyan hazır; prestijli bir ofiste müşterini ağırla. İris Ofis; avukat, psikolog, diyetisyen ve ofis ile çalışan diğer meslek gruplarına Kocaeli'de büyüme altyapısı sunar.</p>
+    <div class="hero-actions">
+      <a href="#iletisim" class="cta-btn sans">Hemen Başvur</a>
+      <a href="#nasil-calisir" class="btn-outline sans">Nasıl Çalışır?</a>
+    </div>
+
+    <div class="stats">
+      <div>
+        <div class="stat-num">3–5</div>
+        <div class="stat-label">Müşteriyle Başla</div>
+      </div>
+      <div class="stat-arrow"></div>
+      <div class="stat-mid">12 AY</div>
+      <div class="stat-arrow"></div>
+      <div>
+        <div class="stat-num">15+</div>
+        <div class="stat-label">Müşteriyle Kendi Ofisin</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nasil-calisir">
+  <div class="wrap">
+    <h2 class="section-title">Nasıl Çalışır?</h2>
+    <p class="section-sub">Üç adımda kendi müşteri kitleni büyüten, markanı oluşturan bir sürece dahil oluyorsun.</p>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Başvur ve Değerlendirme</h3>
+        <p>Mesleğini ve hedeflerini bizimle paylaş; sana en uygun görüşme takvimi ve ofis planını birlikte çıkaralım.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>Marka Kimliğin Hazırlanır</h3>
+        <p>Kartvizit, internet sitesi ve sosyal medya hesapların hazırlanır; prestijli ofiste haftalık planlı görüşme saatlerin başlar.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Büyü ve Bağımsızlaş</h3>
+        <p>12 ay içinde 3-5 müşteriden 15+ müşteriye ulaş; kendi ofisini açacak birikime ve markaya sahip ol.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="quote">
+      <p class="sans">"Platform bir <span class="hl">işveren</span> değil, marka ve <span class="hl">altyapı ortağıdır</span>."</p>
+    </div>
+  </div>
+</section>
+
+<section id="avantajlar">
+  <div class="wrap">
+    <h2 class="section-title">Avantajların</h2>
+    <p class="section-sub">Bu süreçte yalnız değilsin — ama sınırların da yok. Büyüdükçe kendi yoluna, biz yenisine devam ederiz.</p>
+    <div class="benefits">
+      <div class="benefit">
+        <div class="icon-circle">🪪</div>
+        <div><h4>Marka Kimliğin</h4><p>Kartvizit, internet sitesi ve sosyal medya hesapların senin için hazırlanır.</p></div>
+      </div>
+      <div class="benefit">
+        <div class="icon-circle">🏢</div>
+        <div><h4>Prestijli Ofisin</h4><p>Haftalık planlı görüşme saatleriyle müşterilerini profesyonel bir ortamda ağırla.</p></div>
+      </div>
+      <div class="benefit">
+        <div class="icon-circle">🧭</div>
+        <div><h4>Bağımsızlığın</h4><p>Kendi işinin sahibisin, hep öyle kal — büyüdükçe kendi ofisine taşınırsın.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="meslekler">
+  <div class="wrap">
+    <h2 class="section-title">Kimler İçin?</h2>
+    <p class="section-sub">Ofis ile çalışan, birebir müşteri/danışan görüşmesi yapan meslek gruplarına uygundur.</p>
+    <div class="professions">
+      <div class="prof-card"><div class="prof-emoji">⚖️</div><h4>Avukat</h4><p>Danışmanlık ve dava süreçleri için prestijli görüşme odası.</p></div>
+      <div class="prof-card"><div class="prof-emoji">🧠</div><h4>Psikolog</h4><p>Seans görüşmeleri için sakin, mahremiyeti korunan ofis alanı.</p></div>
+      <div class="prof-card"><div class="prof-emoji">🍎</div><h4>Diyetisyen</h4><p>Danışan takibi ve görüşmeleri için düzenli randevu ofisleri.</p></div>
+      <div class="prof-card"><div class="prof-emoji">➕</div><h4>Ve Diğerleri</h4><p>Ofis ortamında birebir hizmet veren tüm meslek grupları.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="iletisim">
+  <div class="wrap">
+    <h2 class="section-title">İletişim / Başvuru</h2>
+    <p class="section-sub">Formu doldur, ekibimiz seninle iletişime geçsin.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>İris Ofis</h3>
+        <p>Kocaeli merkezli, ofis ile çalışan meslek gruplarına büyüme altyapısı sunan marka ve altyapı ortağı.</p>
+        <div class="contact-line"><b>E-posta:</b> <span>info@irisofis.com</span></div>
+        <div class="contact-line"><b>Telefon:</b> <span>0555 886 11 51</span></div>
+        <div class="contact-line"><b>Adres:</b> <span>Kocaeli, Türkiye</span></div>
+        <p class="form-note">* İletişim bilgileri örnektir, yayına almadan önce gerçek bilgilerinizle güncelleyin.</p>
+      </div>
+      <form id="applyForm">
+        <div class="field"><label for="name">Ad Soyad</label><input id="name" required></div>
+        <div class="field"><label for="profession">Mesleğin</label>
+          <select id="profession">
+            <option>Avukat</option><option>Psikolog</option><option>Diyetisyen</option><option>Diğer</option>
+          </select>
+        </div>
+        <div class="field"><label for="phone">Telefon</label><input id="phone" required></div>
+        <div class="field"><label for="email">E-posta</label><input id="email" type="email" required></div>
+        <div class="field"><label for="message">Mesajın</label><textarea id="message"></textarea></div>
+        <button type="submit" class="submit-btn">Başvuruyu Gönder</button>
+        <p class="form-note">Gönder'e bastığında e-posta uygulaman açılır ve başvurun info@irisofis.com adresine iletilmek üzere hazırlanır.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <div class="footer-brand"><img src="logo.png" alt="logo"><span>İris Ofis · Kocaeli</span></div>
+    <div class="social">
+      <a href="#" aria-label="LinkedIn">in</a>
+      <a href="#" aria-label="Instagram">ig</a>
+    </div>
+    <div>© 2026 İris Ofis. Tüm hakları saklıdır.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menuToggle').addEventListener('click', function(){
+    document.getElementById('mainNav').classList.toggle('open');
+  });
+  document.getElementById('applyForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('name').value;
+    var profession = document.getElementById('profession').value;
+    var phone = document.getElementById('phone').value;
+    var email = document.getElementById('email').value;
+    var message = document.getElementById('message').value;
+    var body = encodeURIComponent(
+      'Ad Soyad: ' + name + '\nMeslek: ' + profession + '\nTelefon: ' + phone + '\nE-posta: ' + email + '\nMesaj: ' + message
+    );
+    window.location.href = 'mailto:info@irisofis.com?subject=' + encodeURIComponent('İris Ofis Başvuru - ' + name) + '&body=' + body;
+  });
+</script>
+
+</body>
+</html>
